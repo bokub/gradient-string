@@ -1,0 +1,40 @@
+{
+  "name": "gradient-string",
+  "description": "Beautiful gradients in terminal stdout",
+  "version": "0.0.1",
+  "author": "Boris K",
+  "bugs": "https://github.com/bokub/gradient-string/issues",
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "tinygradient": "^0.3.1"
+  },
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "xo": "^0.18.2"
+  },
+  "homepage": "https://github.com/bokub/gradient-string",
+  "keywords": [
+    "cli",
+    "color",
+    "colors",
+    "colour",
+    "command-line",
+    "console",
+    "formatting",
+    "gradient",
+    "gradients",
+    "log",
+    "logging",
+    "shell",
+    "string",
+    "style",
+    "styles",
+    "terminal"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "bokub/gradient-string",
+  "scripts": {
+    "test": "xo && ava"
+  }
+}
