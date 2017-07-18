@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const tinygradient = require('tinygradient');
 
 function InitGradient() {
-	const grad = tinygradient(...arguments);
+	const grad = tinygradient.apply(this, arguments);
 	return str => applyGradient(str.toString(), grad);
 }
 

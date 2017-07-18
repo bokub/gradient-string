@@ -1,7 +1,7 @@
 {
   "name": "gradient-string",
   "description": "Beautiful gradients in terminal stdout",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Boris K",
   "bugs": "https://github.com/bokub/gradient-string/issues",
   "dependencies": {
@@ -11,6 +11,9 @@
   "devDependencies": {
     "ava": "^0.21.0",
     "xo": "^0.18.2"
+  },
+  "engines": {
+    "node": ">=4"
   },
   "homepage": "https://github.com/bokub/gradient-string",
   "keywords": [
