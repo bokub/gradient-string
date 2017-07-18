@@ -1,5 +1,7 @@
 # gradient-string
 
+[![Build Status](https://travis-ci.org/bokub/gradient-string.svg?branch=master)](https://travis-ci.org/bokub/gradient-string)
+[![npm](https://img.shields.io/npm/v/gradient-string.svg)](https://www.npmjs.com/package/gradient-string)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 > Beautiful gradients in terminal stdout
@@ -14,19 +16,18 @@ $ npm install --save gradient-string
 
 ```javascript
 const gradient = require('gradient-string');
-const log = console.log;
 
-log(gradient('cyan', 'pink')('Hello world!'));
+console.log(gradient('cyan', 'pink')('Hello world!'));
 ```
 
 ### Initialize a gradient
 
 ```javascript
-// using varargs
+// Using varargs
 let coolGradient = gradient('red', 'green', 'blue');
 
-// using array
-let coolGradient = gradient([ '#FF0000', '#00FF00', '#0000FF' ]);
+// Using array
+let coolGradient = gradient(['#FF0000', '#00FF00', '#0000FF']);
 ```
 
 The colors are parsed with TinyColor, [multiple formats are accepted](https://github.com/bgrins/TinyColor/blob/master/README.md#accepted-string-input).
@@ -54,8 +55,8 @@ let coolGradient = gradient([
 ### Use a gradient
 
 ```javascript
-let coolString = coolGradient('This is a string colored with gradient-string!')
-log(coolString);
+let coolString = coolGradient('This is a string colored with gradient-string!');
+console.log(coolString);
 ```
 
 ## Dependencies
