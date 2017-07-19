@@ -38,6 +38,7 @@
   "main": "index.js",
   "repository": "bokub/gradient-string",
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "demo": "node examples/demo.js"
   }
 }

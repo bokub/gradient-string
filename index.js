@@ -7,12 +7,12 @@ const forbiddenChars = /\s/g;
 
 function InitGradient() {
 	const grad = tinygradient.apply(this, arguments);
-	return (str, opts) => applyGradient(str.toString(), grad, opts);
+	return (str, opts) => applyGradient(str ? str.toString() : '', grad, opts);
 }
 
 function applyGradient(str, gradient, opts) {
 	const options = validateOptions(opts);
-	const colorsCount = str.replace(forbiddenChars, '').length;
+	const colorsCount = Math.max(str.replace(forbiddenChars, '').length, gradient.stops.length);
 	const colors = options.interpolation.toLowerCase() === 'hsv' ? gradient.hsv(colorsCount, options.hsvSpin) : gradient.rgb(colorsCount);
 	let result = '';
 	for (const s of str) {
@@ -38,3 +38,8 @@ function validateOptions(opts) {
 }
 
 module.exports = InitGradient;
+
+module.exports.atlas = str => new InitGradient('#FEAC5E', '#C779D0', '#4BC0C8')(str);
+module.exports.cristal = str => new InitGradient('#4AC29A', '#BDFFF3')(str);
+module.exports.morning = str => new InitGradient('#FF5F6D', '#FFC371')(str);
+module.exports.rainbow = str => new InitGradient('#ff0000', '#ff0100')(str, {interpolation: 'hsv', hsvSpin: 'long'});
