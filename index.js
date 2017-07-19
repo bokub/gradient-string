@@ -3,6 +3,8 @@
 const chalk = require('chalk');
 const tinygradient = require('tinygradient');
 
+const forbiddenChars = /\s/g;
+
 function InitGradient() {
 	const grad = tinygradient.apply(this, arguments);
 	return (str, opts) => applyGradient(str.toString(), grad, opts);
@@ -10,10 +12,11 @@ function InitGradient() {
 
 function applyGradient(str, gradient, opts) {
 	const options = validateOptions(opts);
-	const colors = options.interpolation.toLowerCase() === 'hsv' ? gradient.hsv(str.length, options.hsvSpin) : gradient.rgb(str.length);
+	const colorsCount = str.replace(forbiddenChars, '').length;
+	const colors = options.interpolation.toLowerCase() === 'hsv' ? gradient.hsv(colorsCount, options.hsvSpin) : gradient.rgb(colorsCount);
 	let result = '';
-	for (let i = 0, len = str.length; i < len; i++) {
-		result += chalk.hex(colors[i].toHex())(str[i]);
+	for (const s of str) {
+		result += s.match(forbiddenChars) ? s : chalk.hex(colors.shift().toHex())(s);
 	}
 	return result;
 }
