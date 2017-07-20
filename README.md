@@ -6,6 +6,9 @@
 
 > Beautiful gradients in terminal stdout
 
+![gradient-string](http://i.imgur.com/CjukALo.png)
+
+
 ## Install
 
 ```
@@ -42,15 +45,7 @@ let coolGradient = gradient([
 ]);
 ```
 
-You can also specify the position of each color stop (between `0` and `1`). If no position is specified, stops are distributed equidistantly.
-
-```javascript
-let coolGradient = gradient([
-  {color: '#d8e0de', pos: 0},
-  {color: '#255B53', pos: 0.8},
-  {color: '#000000', pos: 1}
-]);
-```
+You can check out more advanced usages of gradients in the [wiki](https://github.com/bokub/gradient-string/wiki/Advanced-gradients), such as custom color stops or color interpolation options. 
 
 ### Use a gradient
 
@@ -58,6 +53,18 @@ let coolGradient = gradient([
 let coolString = coolGradient('This is a string colored with gradient-string!');
 console.log(coolString);
 ```
+
+### Built-in gradients
+
+#### Usage
+```javascript
+const gradient = require('gradient-string');
+
+// Use the rainbow gradient
+gradient.rainbow('I love gradient-strings!')
+```
+#### Available built-in gradients
+![Themes](http://i.imgur.com/nzFb9I5.png)
 
 ## Dependencies
 
