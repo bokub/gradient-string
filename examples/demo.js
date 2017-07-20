@@ -1,13 +1,13 @@
-const gradient = require('../index');
+// Run with npm run-script demo
+const gradient = require('..');
 
-const str = '    Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 const log = console.log;
+const str = '   Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
 log('');
 
-log(gradient.morning(str));
-log(gradient.cristal(str));
-log(gradient.atlas(str));
-log(gradient.rainbow(str));
+for (const t of ['atlas', 'pastel', 'morning', 'cristal', 'rainbow']) {
+	log(gradient[t](str) + '\n');
+}
 
 log('');
