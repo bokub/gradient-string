@@ -6,6 +6,9 @@
 
 > Beautiful gradients in terminal stdout
 
+![gradient-string](http://i.imgur.com/CjukALo.png)
+
+
 ## Install
 
 ```
@@ -50,6 +53,18 @@ You can check out more advanced usages of gradients in the [wiki](https://github
 let coolString = coolGradient('This is a string colored with gradient-string!');
 console.log(coolString);
 ```
+
+### Built-in gradients
+
+#### Usage
+```javascript
+const gradient = require('gradient-string');
+
+// Use the rainbow gradient
+gradient.rainbow('I love gradient-strings!')
+```
+#### Available built-in gradients
+![Themes](http://i.imgur.com/nzFb9I5.png)
 
 ## Dependencies
 
