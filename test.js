@@ -36,6 +36,6 @@ test('works fine', t => {
 		'\u001b[91ma\u001b[39m\u001b[34mb\u001b[39m\u001b[32mc\u001b[39m'); // Red -> blue -> green (long arc)
 });
 
-test('aliases exist', t => {
-	t.notThrows(() => g.rainbow('abc'));
+test('case insensitive options', t => {
+	t.is(g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}), g('red', 'green')('abc', {interpolation: 'HSV', hsvSpin: 'Long'}));
 });

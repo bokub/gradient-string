@@ -13,7 +13,7 @@ function InitGradient() {
 function applyGradient(str, gradient, opts) {
 	const options = validateOptions(opts);
 	const colorsCount = Math.max(str.replace(forbiddenChars, '').length, gradient.stops.length);
-	const colors = options.interpolation.toLowerCase() === 'hsv' ? gradient.hsv(colorsCount, options.hsvSpin) : gradient.rgb(colorsCount);
+	const colors = options.interpolation.toLowerCase() === 'hsv' ? gradient.hsv(colorsCount, options.hsvSpin.toLowerCase()) : gradient.rgb(colorsCount);
 	let result = '';
 	for (const s of str) {
 		result += s.match(forbiddenChars) ? s : chalk.hex(colors.shift().toHex())(s);
