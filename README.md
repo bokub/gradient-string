@@ -6,7 +6,7 @@
 
 > Beautiful gradients in terminal stdout
 
-![gradient-string](http://i.imgur.com/CjukALo.png)
+[![gradient-string](http://bit.ly/2tlmSgL)](http://bit.ly/2tlhNFv)
 
 
 ## Install
@@ -64,7 +64,7 @@ const gradient = require('gradient-string');
 gradient.rainbow('I love gradient-strings!')
 ```
 #### Available built-in gradients
-![Themes](http://i.imgur.com/nzFb9I5.png)
+[![Built-in gradients](http://bit.ly/2uFygrL)](http://bit.ly/2ufX07r)
 
 ## Dependencies
 
