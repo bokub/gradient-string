@@ -50,13 +50,13 @@ You can check out more advanced usages of gradients in the [wiki](https://github
 ### Use a gradient
 
 ```javascript
-let coolString = coolGradient('This is a string colored with gradient-string!');
+let coolString = coolGradient('This is a fancy string!');
 console.log(coolString);
 ```
 
-### Built-in gradients
+## Built-in gradients
 
-#### Usage
+### Usage
 ```javascript
 const gradient = require('gradient-string');
 
