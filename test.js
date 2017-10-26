@@ -36,6 +36,22 @@ test('works fine', t => {
 		'\u001b[91ma\u001b[39m\u001b[34mb\u001b[39m\u001b[32mc\u001b[39m'); // Red -> blue -> green (long arc)
 });
 
+test('supports aliases', t => {
+	t.is(g.cristal('Hello world'), g('#bdfff3', '#4ac29a')('Hello world'));
+	t.is(g.pastel('Hello world'), g('#74ebd5', '#74ecd5')('Hello world', {interpolation: 'hsv', hsvSpin: 'long'}));
+});
+
+test('multiline option works the same way on one line strings', t => {
+	t.is(g('blue', 'white', 'red').multiline('abc'), g('blue', 'white', 'red')('abc'));
+	t.is(g('red', 'green').multiline('abc', {interpolation: 'hsv'}), g('red', 'green')('abc', {interpolation: 'hsv'}));
+});
+
+test('multiline option works fine', t => {
+	t.is(g('orange', 'purple').multiline('hello\nworld'), g('orange', 'purple')('hello') + '\n' + g('orange', 'purple')('world'));
+	t.is(g.atlas.multiline('abc\n\ndef'), g.atlas('abc') + '\n\n' + g.atlas('def'));
+	t.not(g.rainbow.multiline('hi\nworld'), g.rainbow('hi') + '\n' + g.rainbow('world'));
+});
+
 test('case insensitive options', t => {
 	t.is(g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}), g('red', 'green')('abc', {interpolation: 'HSV', hsvSpin: 'Long'}));
 });
