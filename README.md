@@ -60,11 +60,37 @@ console.log(coolString);
 const gradient = require('gradient-string');
 
 // Use the rainbow gradient
-gradient.rainbow('I love gradient-strings!')
+console.log(gradient.rainbow('I love gradient-strings!'))
 ```
 
 ### Available built-in gradients
+
 [![Built-in gradients](http://bit.ly/2uFygrL)](http://bit.ly/2ufX07r)
+
+## Multi line gradients
+
+In some cases, you may want to apply the same horizontal gradient on each line of a long text (or a piece of ASCII art).
+
+You can use the `multiline()` method of a gradient to ensure that the colors are vertically aligned.
+
+```javascript
+const gradient = require('gradient-string');
+
+// Use the same gradient on every line
+let duck = gradient('orange', 'yellow').multiline([
+    "  __",
+    "<(o )___",
+    " ( ._> /",
+    "  `---'",
+].join('\n'));
+console.log(duck);
+
+// Works with aliases
+gradient.atlas.multiline('Multi line\nstring');
+
+// Works with advanced options
+gradient('cyan', 'pink').multiline('Multi line\nstring', {interpolation: 'hsv'});
+```
 
 ## Advanced gradients
 
