@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/bokub/gradient-string.svg?branch=master)](https://travis-ci.org/bokub/gradient-string)
 [![npm](https://img.shields.io/npm/v/gradient-string.svg)](https://www.npmjs.com/package/gradient-string)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![npm](https://img.shields.io/npm/dm/gradient-string.svg)](https://www.npmjs.com/package/gradient-string)
 
 > Beautiful gradients in terminal stdout
 
