@@ -1,16 +1,18 @@
 {
   "name": "gradient-string",
-  "description": "Beautiful gradients in terminal stdout",
+  "description": "Beautiful color gradients in terminal output",
   "version": "1.0.0",
   "author": "Boris K",
   "bugs": "https://github.com/bokub/gradient-string/issues",
   "dependencies": {
-    "chalk": "^2.2.0",
+    "chalk": "^2.3.2",
     "tinygradient": "^0.3.1"
   },
   "devDependencies": {
-    "ava": "^0.21.0",
-    "xo": "^0.18.2"
+    "ava": "^0.25.0",
+    "codecov": "^3.0.0",
+    "nyc": "^11.6.0",
+    "xo": "^0.20.3"
   },
   "engines": {
     "node": ">=4"
@@ -42,7 +44,9 @@
   "repository": "bokub/gradient-string",
   "scripts": {
     "built-in": "node examples/built-in.js",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "demo": "node examples/demo.js",
-    "test": "xo && ava"
+    "fix": "xo --fix",
+    "test": "xo && nyc ava"
   }
 }

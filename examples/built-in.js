@@ -1,4 +1,4 @@
-// Run with npm run-script built-in
+// Run with npm run built-in
 const gradient = require('..');
 
 const log = console.log;

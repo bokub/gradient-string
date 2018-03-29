@@ -1,5 +1,5 @@
 import test from 'ava';
-import g from './';
+import g from '.';
 
 test('throw error if wrong gradient arguments', t => {
 	t.throws(() => g()('abc'));
@@ -24,16 +24,18 @@ test('throw error if hsvSpin is not a string, but only if interpolation is HSV',
 	t.throws(() => g('blue', 'red')('abc', {interpolation: 'hsv', hsvSpin: 42}), 'Expected `options.hsvSpin` to be a `string`, got `number`');
 });
 
+/* eslint-disable unicorn/escape-case */
 test('works fine', t => {
-	t.is(g('blue', 'white', 'red')('abc'), '\u001b[94ma\u001b[39m\u001b[97mb\u001b[39m\u001b[91mc\u001b[39m');
+    t.is(g('blue', 'white', 'red')('abc'),
+		'\u001b[38;2;0;0;255ma\u001b[39m\u001b[38;2;255;255;255mb\u001b[39m\u001b[38;2;255;0;0mc\u001b[39m');
 
-	t.is(g('yellow', 'green')('abc'), g(['yellow', 'green'])('abc')); // Varargs syntax equal to array syntax
+    t.is(g('yellow', 'green')('abc'), g(['yellow', 'green'])('abc')); // Varargs syntax equal to array syntax
 
-	t.is(g('red', 'green')('abc', {interpolation: 'hsv'}),
-		'\u001b[91ma\u001b[39m\u001b[33mb\u001b[39m\u001b[32mc\u001b[39m'); // Red -> yellow -> green (short arc)
+    t.is(g('red', 'green')('abc', {interpolation: 'hsv'}),
+		'\u001b[38;2;255;0;0ma\u001b[39m\u001b[38;2;191;191;0mb\u001b[39m\u001b[38;2;0;128;0mc\u001b[39m'); // Red -> yellow -> green (short arc)
 
 	t.is(g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}),
-		'\u001b[91ma\u001b[39m\u001b[34mb\u001b[39m\u001b[32mc\u001b[39m'); // Red -> blue -> green (long arc)
+		'\u001b[38;2;255;0;0ma\u001b[39m\u001b[38;2;0;0;191mb\u001b[39m\u001b[38;2;0;128;0mc\u001b[39m'); // Red -> blue -> green (long arc)
 });
 
 test('supports aliases', t => {
