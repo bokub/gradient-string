@@ -26,16 +26,26 @@ test('throw error if hsvSpin is not a string, but only if interpolation is HSV',
 
 /* eslint-disable unicorn/escape-case */
 test('works fine', t => {
-    t.is(g('blue', 'white', 'red')('abc'),
-		'\u001b[38;2;0;0;255ma\u001b[39m\u001b[38;2;255;255;255mb\u001b[39m\u001b[38;2;255;0;0mc\u001b[39m');
+	assertEqualOne(t, g('blue', 'white', 'red')('abc'), [
+		'\u001b[94ma\u001b[39m\u001b[97mb\u001b[39m\u001b[91mc\u001b[39m',
+		'\u001b[38;2;0;0;255ma\u001b[39m\u001b[38;2;255;255;255mb\u001b[39m\u001b[38;2;255;0;0mc\u001b[39m'
+	]);
 
-    t.is(g('yellow', 'green')('abc'), g(['yellow', 'green'])('abc')); // Varargs syntax equal to array syntax
+	// Red -> yellow -> green (short arc)
+	assertEqualOne(t, g('red', 'green')('abc', {interpolation: 'hsv'}), [
+		'\u001b[91ma\u001b[39m\u001b[33mb\u001b[39m\u001b[32mc\u001b[39m',
+		'\u001b[38;2;255;0;0ma\u001b[39m\u001b[38;2;191;191;0mb\u001b[39m\u001b[38;2;0;128;0mc\u001b[39m'
+	]);
 
-    t.is(g('red', 'green')('abc', {interpolation: 'hsv'}),
-		'\u001b[38;2;255;0;0ma\u001b[39m\u001b[38;2;191;191;0mb\u001b[39m\u001b[38;2;0;128;0mc\u001b[39m'); // Red -> yellow -> green (short arc)
+	// Red -> blue -> green (long arc)
+	assertEqualOne(t, g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}), [
+		'\u001b[91ma\u001b[39m\u001b[34mb\u001b[39m\u001b[32mc\u001b[39m',
+		'\u001b[38;2;255;0;0ma\u001b[39m\u001b[38;2;0;0;191mb\u001b[39m\u001b[38;2;0;128;0mc\u001b[39m'
+	]);
+});
 
-	t.is(g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}),
-		'\u001b[38;2;255;0;0ma\u001b[39m\u001b[38;2;0;0;191mb\u001b[39m\u001b[38;2;0;128;0mc\u001b[39m'); // Red -> blue -> green (long arc)
+test('varargs syntax equal to array syntax', t => {
+	t.is(g('yellow', 'green')('abc'), g(['yellow', 'green'])('abc'));
 });
 
 test('supports aliases', t => {
@@ -57,3 +67,8 @@ test('multiline option works fine', t => {
 test('case insensitive options', t => {
 	t.is(g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}), g('red', 'green')('abc', {interpolation: 'HSV', hsvSpin: 'Long'}));
 });
+
+// Asset that actual is equal to at least one element of expected
+function assertEqualOne(t, actual, expected) {
+	t.true(expected.indexOf(actual) > -1);
+}
