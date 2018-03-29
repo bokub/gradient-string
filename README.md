@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/travis/bokub/gradient-string.svg?style=flat-square)](https://travis-ci.org/bokub/gradient-string)
 [![npm](https://img.shields.io/npm/v/gradient-string.svg?style=flat-square)](https://www.npmjs.com/package/gradient-string)
 [![Codecov](https://img.shields.io/codecov/c/github/bokub/gradient-string.svg?style=flat-square)](https://codecov.io/gh/bokub/gradient-string)
-[![npm](https://img.shields.io/npm/dw/gradient-string.svg?style=flat-square)](https://www.npmjs.com/package/gradient-string)
+[![npm](https://img.shields.io/npm/dw/gradient-string.svg?style=flat-square&colorB=fe7d37)](https://www.npmjs.com/package/gradient-string)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg?style=flat-square)](https://github.com/sindresorhus/xo)
 [![Mentioned in Awesome Node.js](https://awesome.re/mentioned-badge.svg)](https://github.com/sindresorhus/awesome-nodejs)
 
