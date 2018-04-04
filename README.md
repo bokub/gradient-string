@@ -5,18 +5,18 @@
 [![Codecov](https://img.shields.io/codecov/c/github/bokub/gradient-string.svg?style=flat-square)](https://codecov.io/gh/bokub/gradient-string)
 [![npm](https://img.shields.io/npm/dw/gradient-string.svg?style=flat-square&colorB=fe7d37)](https://www.npmjs.com/package/gradient-string)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg?style=flat-square)](https://github.com/sindresorhus/xo)
-[![Mentioned in Awesome Node.js](https://awesome.re/mentioned-badge.svg)](https://github.com/sindresorhus/awesome-nodejs)
+[![Mentioned in Awesome Node.js](http://bit.ly/flat-mention-badge)](https://github.com/sindresorhus/awesome-nodejs#command-line-utilities)
 
 
-> Beautiful gradients in terminal stdout
+> Beautiful color gradients in terminal output
 
-[![gradient-string](http://bit.ly/2tlmSgL)](http://bit.ly/2tlhNFv)
+[![gradient-string](http://bit.ly/gradient-string-preview)](http://bit.ly/gradient-string-large)
 
 
 ## Install
 
 ```
-$ npm install --save gradient-string
+$ npm i gradient-string
 ```
 
 ## Usage
