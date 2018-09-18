@@ -1,7 +1,7 @@
 // Run with npm run built-in
 const gradient = require('..');
 
-const log = console.log;
+const {log} = console;
 const str = '■'.repeat(48);
 
 log('');
