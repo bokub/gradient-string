@@ -1,8 +1,16 @@
 sudo: false
 language: node_js
 node_js:
-  - '6'
-  - '5'
-  - '4'
+- 'node'
+- 'lts/*'
+- '6'
 
 after_success: npm run coverage
+
+deploy:
+  provider: npm
+  email: npm.bokub@mail.com
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+    node: 'node'
