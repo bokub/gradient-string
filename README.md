@@ -1,11 +1,12 @@
 # gradient-string
 
-[![Build Status](https://img.shields.io/travis/bokub/gradient-string.svg?style=flat-square)](https://travis-ci.org/bokub/gradient-string)
-[![npm](https://img.shields.io/npm/v/gradient-string.svg?style=flat-square)](https://www.npmjs.com/package/gradient-string)
-[![Codecov](https://img.shields.io/codecov/c/github/bokub/gradient-string.svg?style=flat-square)](https://codecov.io/gh/bokub/gradient-string)
-[![npm](https://img.shields.io/npm/dw/gradient-string.svg?style=flat-square&colorB=fe7d37)](https://www.npmjs.com/package/gradient-string)
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg?style=flat-square)](https://github.com/sindresorhus/xo)
-[![Mentioned in Awesome Node.js](https://awesome.re/mentioned-badge-flat.svg)](https://github.com/sindresorhus/awesome-nodejs)
+[![Build Status][build-src]][build-href]
+[![Version][version-src]][version-href]
+[![Codecov][codecov-src]][codecov-href]
+[![Downloads][downloads-src]][downloads-href]
+[![Publish size][publish-src]][publish-href]
+[![XO code style][xo-src]][xo-href]
+[![Mentioned in Awesome Node.js][awesome-src]][awesome-href]
 
 
 > Beautiful color gradients in terminal output
@@ -161,6 +162,14 @@ console.log(redToGreen(str, {interpolation: 'hsv', hsvSpin: 'long'}));
 ##### Result
 ![Example result](http://i.imgur.com/plQAN2Q.png)
 
+## Typescript
+
+Typescript definitions of gradient-string are available on [DefinitelyTyped](https://www.npmjs.com/package/@types/gradient-string)
+
+```sh
+npm i @types/gradient-string
+```
+
 
 ## Dependencies
 
@@ -171,3 +180,19 @@ console.log(redToGreen(str, {interpolation: 'hsv', hsvSpin: 'long'}));
 ## License
 
 MIT © [Boris K](https://github.com/bokub)
+
+[build-src]: https://flat.badgen.net/travis/bokub/gradient-string
+[version-src]: https://runkit.io/bokub/npm-version/branches/master/gradient-string?style=flat
+[codecov-src]: https://flat.badgen.net/codecov/c/github/bokub/gradient-string
+[downloads-src]: https://flat.badgen.net/npm/dm/gradient-string?color=pink
+[publish-src]: https://flat.badgen.net/packagephobia/publish/gradient-string
+[xo-src]: https://flat.badgen.net/badge/code%20style/XO/5ed9c7
+[awesome-src]: https://awesome.re/mentioned-badge-flat.svg
+
+[build-href]: https://travis-ci.org/bokub/gradient-string
+[version-href]: https://www.npmjs.com/package/gradient-string
+[codecov-href]: https://codecov.io/gh/bokub/gradient-string
+[downloads-href]: https://www.npmjs.com/package/gradient-string
+[publish-href]: https://packagephobia.now.sh/result?p=gradient-string
+[xo-href]: https://github.com/sindresorhus/xo
+[awesome-href]: https://github.com/sindresorhus/awesome-nodejs
