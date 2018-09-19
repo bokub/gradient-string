@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // Run with npm run demo
 const gradient = require('..');
 

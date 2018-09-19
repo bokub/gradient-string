@@ -11,6 +11,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "codecov": "^3.1.0",
+    "cross-env": "^5.2.0",
     "nyc": "^13.1.0",
     "xo": "^0.23.0"
   },
@@ -47,6 +48,6 @@
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "demo": "node examples/demo.js",
     "fix": "xo --fix",
-    "test": "xo && nyc ava"
+    "test": "xo && nyc cross-env FORCE_COLOR=1 ava"
   }
 }

@@ -4,7 +4,6 @@
 [![Version][version-src]][version-href]
 [![Codecov][codecov-src]][codecov-href]
 [![Downloads][downloads-src]][downloads-href]
-[![Publish size][publish-src]][publish-href]
 [![XO code style][xo-src]][xo-href]
 [![Mentioned in Awesome Node.js][awesome-src]][awesome-href]
 
@@ -184,8 +183,7 @@ MIT © [Boris K](https://github.com/bokub)
 [build-src]: https://flat.badgen.net/travis/bokub/gradient-string
 [version-src]: https://runkit.io/bokub/npm-version/branches/master/gradient-string?style=flat
 [codecov-src]: https://flat.badgen.net/codecov/c/github/bokub/gradient-string
-[downloads-src]: https://flat.badgen.net/npm/dm/gradient-string?color=pink
-[publish-src]: https://flat.badgen.net/packagephobia/publish/gradient-string
+[downloads-src]: https://flat.badgen.net/npm/dm/gradient-string?color=FF9800
 [xo-src]: https://flat.badgen.net/badge/code%20style/XO/5ed9c7
 [awesome-src]: https://awesome.re/mentioned-badge-flat.svg
 
@@ -193,6 +191,5 @@ MIT © [Boris K](https://github.com/bokub)
 [version-href]: https://www.npmjs.com/package/gradient-string
 [codecov-href]: https://codecov.io/gh/bokub/gradient-string
 [downloads-href]: https://www.npmjs.com/package/gradient-string
-[publish-href]: https://packagephobia.now.sh/result?p=gradient-string
 [xo-href]: https://github.com/sindresorhus/xo
 [awesome-href]: https://github.com/sindresorhus/awesome-nodejs
