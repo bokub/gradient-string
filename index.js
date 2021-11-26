@@ -44,7 +44,7 @@ function multilineGradient(str, gradient, opts) {
 }
 
 function validateOptions(opts) {
-	const options = Object.assign({interpolation: 'rgb', hsvSpin: 'short'}, opts);
+	const options = {interpolation: 'rgb', hsvSpin: 'short', ...opts};
 	if (opts !== undefined && typeof opts !== 'object') {
 		throw new TypeError(`Expected \`options\` to be an \`object\`, got \`${typeof opts}\``);
 	}

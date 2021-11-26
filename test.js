@@ -12,16 +12,16 @@ test('do not throw error if nothing to color', t => {
 });
 
 test('throw error if options is not an object', t => {
-	t.throws(() => g('blue', 'red')('abc', false), 'Expected `options` to be an `object`, got `boolean`');
+	t.throws(() => g('blue', 'red')('abc', false), null, 'Expected `options` to be an `object`, got `boolean`');
 });
 
 test('throw error if interpolation is not a string', t => {
-	t.throws(() => g('blue', 'red')('abc', {interpolation: 1000}), 'Expected `options.interpolation` to be a `string`, got `number`');
+	t.throws(() => g('blue', 'red')('abc', {interpolation: 1000}), null, 'Expected `options.interpolation` to be a `string`, got `number`');
 });
 
 test('throw error if hsvSpin is not a string, but only if interpolation is HSV', t => {
 	t.notThrows(() => g('blue', 'red')('abc', {hsvSpin: 42}));
-	t.throws(() => g('blue', 'red')('abc', {interpolation: 'hsv', hsvSpin: 42}), 'Expected `options.hsvSpin` to be a `string`, got `number`');
+	t.throws(() => g('blue', 'red')('abc', {interpolation: 'hsv', hsvSpin: 42}), null, 'Expected `options.hsvSpin` to be a `string`, got `number`');
 });
 
 /* eslint-disable unicorn/escape-case */

@@ -3,25 +3,35 @@
   "description": "Beautiful color gradients in terminal output",
   "version": "1.2.0",
   "author": "Boris K",
-  "bugs": "https://github.com/bokub/gradient-string/issues",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "built-in": "node examples/built-in.js",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "demo": "node examples/demo.js",
+    "fix": "xo --fix",
+    "test": "xo && nyc cross-env FORCE_COLOR=1 ava"
+  },
   "dependencies": {
-    "chalk": "^2.4.1",
-    "tinygradient": "^0.4.1"
+    "chalk": "^4.1.2",
+    "tinygradient": "^1.1.5"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
-    "codecov": "^3.1.0",
-    "cross-env": "^5.2.0",
-    "nyc": "^13.1.0",
-    "xo": "^0.23.0"
-  },
-  "engines": {
-    "node": ">=4"
+    "ava": "^3.15.0",
+    "codecov": "^3.8.3",
+    "cross-env": "^7.0.3",
+    "nyc": "^15.1.0",
+    "xo": "0.23.0"
   },
   "files": [
     "index.js"
   ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": "bokub/gradient-string",
   "homepage": "https://github.com/bokub/gradient-string",
+  "bugs": "https://github.com/bokub/gradient-string/issues",
   "keywords": [
     "cli",
     "color",
@@ -40,14 +50,7 @@
     "styles",
     "terminal"
   ],
-  "license": "MIT",
-  "main": "index.js",
-  "repository": "bokub/gradient-string",
-  "scripts": {
-    "built-in": "node examples/built-in.js",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "demo": "node examples/demo.js",
-    "fix": "xo --fix",
-    "test": "xo && nyc cross-env FORCE_COLOR=1 ava"
+  "ava": {
+    "require": ["esm"]
   }
 }
