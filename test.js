@@ -24,7 +24,6 @@ test('throw error if hsvSpin is not a string, but only if interpolation is HSV',
 	t.throws(() => g('blue', 'red')('abc', {interpolation: 'hsv', hsvSpin: 42}), null, 'Expected `options.hsvSpin` to be a `string`, got `number`');
 });
 
-/* eslint-disable unicorn/escape-case */
 test('works fine', t => {
 	t.not(g('blue', 'white', 'red')('abc'), 'abc');
 

@@ -1,7 +1,7 @@
 {
   "name": "gradient-string",
   "description": "Beautiful color gradients in terminal output",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Boris K",
   "license": "MIT",
   "main": "index.js",
@@ -20,8 +20,9 @@
     "ava": "^3.15.0",
     "codecov": "^3.8.3",
     "cross-env": "^7.0.3",
+    "esm": "^3.2.25",
     "nyc": "^15.1.0",
-    "xo": "0.23.0"
+    "xo": "^0.48.0"
   },
   "files": [
     "index.js"
@@ -54,5 +55,17 @@
     "require": [
       "esm"
     ]
+  },
+  "xo": {
+    "rules": {
+      "comma-dangle": "off",
+      "node/prefer-global/buffer": "off",
+      "operator-linebreak": "off",
+      "padding-line-between-statements": "off",
+      "unicorn/prefer-module": "off",
+      "unicorn/prefer-regexp-test": "off",
+      "unicorn/prefer-spread": "off",
+      "unicorn/prevent-abbreviations": "off"
+    }
   }
 }
