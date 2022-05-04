@@ -1,4 +1,4 @@
-name: gradient-string CI
+name: CI/CD
 
 on:
   - push
@@ -7,6 +7,7 @@ on:
 
 jobs:
   lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,9 +15,10 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: npx xo
+      - run: npm run lint
 
   test:
+    name: Test (Node v${{ matrix.node }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,7 +29,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      - run: npx c8 cross-env FORCE_COLOR=1 ava
+      - run: npm test
       - run: npm run coverage
       - uses: codecov/codecov-action@v3
         if: matrix.node == 16
@@ -35,6 +37,7 @@ jobs:
           files: ./coverage.lcov
 
   publish:
+    name: Publish on npm
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     needs:

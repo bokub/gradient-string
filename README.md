@@ -180,14 +180,14 @@ npm i @types/gradient-string
 
 MIT © [Boris K](https://github.com/bokub)
 
-[build-src]: https://flat.badgen.net/travis/bokub/gradient-string
+[build-src]: https://flat.badgen.net/github/checks/bokub/gradient-string?label=tests
 [version-src]: https://runkit.io/bokub/npm-version/branches/master/gradient-string?style=flat
 [codecov-src]: https://flat.badgen.net/codecov/c/github/bokub/gradient-string
 [downloads-src]: https://flat.badgen.net/npm/dm/gradient-string?color=FF9800
 [xo-src]: https://flat.badgen.net/badge/code%20style/XO/5ed9c7
 [awesome-src]: https://awesome.re/mentioned-badge-flat.svg
 
-[build-href]: https://travis-ci.org/bokub/gradient-string
+[build-href]: https://github.com/bokub/gradient-string/actions/workflows/run.yml
 [version-href]: https://www.npmjs.com/package/gradient-string
 [codecov-href]: https://codecov.io/gh/bokub/gradient-string
 [downloads-href]: https://www.npmjs.com/package/gradient-string

@@ -10,7 +10,9 @@
     "coverage": "c8 report --reporter=text-lcov > coverage.lcov",
     "demo": "node examples/demo.js",
     "fix": "xo --fix",
-    "test": "xo && c8 cross-env FORCE_COLOR=1 ava"
+    "lint": "xo",
+    "test": "cross-env FORCE_COLOR=1 c8 ava",
+    "prepare": "husky install"
   },
   "dependencies": {
     "chalk": "^4.1.2",
@@ -19,10 +21,10 @@
   "devDependencies": {
     "ava": "^3.15.0",
     "c8": "^7.11.2",
-    "codecov": "^3.8.3",
     "cross-env": "^7.0.3",
     "esm": "^3.2.25",
-    "xo": "^0.48.0"
+    "xo": "^0.48.0",
+    "husky": "^7.0.4"
   },
   "files": [
     "index.js"
