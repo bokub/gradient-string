@@ -7,10 +7,10 @@
   "main": "index.js",
   "scripts": {
     "built-in": "node examples/built-in.js",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "coverage": "c8 report --reporter=text-lcov > coverage.lcov",
     "demo": "node examples/demo.js",
     "fix": "xo --fix",
-    "test": "xo && nyc cross-env FORCE_COLOR=1 ava"
+    "test": "xo && c8 cross-env FORCE_COLOR=1 ava"
   },
   "dependencies": {
     "chalk": "^4.1.2",
@@ -18,10 +18,10 @@
   },
   "devDependencies": {
     "ava": "^3.15.0",
+    "c8": "^7.11.2",
     "codecov": "^3.8.3",
     "cross-env": "^7.0.3",
     "esm": "^3.2.25",
-    "nyc": "^15.1.0",
     "xo": "^0.48.0"
   },
   "files": [

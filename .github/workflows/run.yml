@@ -1,27 +1,52 @@
-on: push
+name: gradient-string CI
+
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
 
 jobs:
-  publish:
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16'
-
+          node-version: 16
       - run: npm ci
+      - run: npx xo
 
-      - run: npm test
-
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 10, 16 ]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npx c8 cross-env FORCE_COLOR=1 ava
       - run: npm run coverage
-
-      - uses: codecov/codecov-action@v2
+      - uses: codecov/codecov-action@v3
+        if: matrix.node == 16
         with:
           files: ./coverage.lcov
 
+  publish:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    needs:
+      - lint
+      - test
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
       - name: Publish on npm
-        if: startsWith(github.ref, 'refs/tags/')
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
