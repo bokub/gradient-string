@@ -1,7 +1,12 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
+import chalk from 'chalk';
 import gradient, { rainbow, cristal, pastel, atlas } from '.';
 
 describe('Gradient Tests', () => {
+  beforeEach(() => {
+    chalk.level = 2;
+  });
+
   it('should throw an error if wrong gradient arguments are passed', () => {
     expect(() => gradient()('abc')).toThrowError('Missing gradient colors');
     expect(() => gradient('red')('abc')).toThrowError('Expected an array of colors, received "red"');

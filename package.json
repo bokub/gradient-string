@@ -10,8 +10,8 @@
   "scripts": {
     "build": "rm -fr dist && tsc && rm -fr dist/*.spec.*",
     "built-in": "[ ! -f dist/index.js ] && npm run build; node examples/built-in.js",
-    "test": "FORCE_COLOR=1 vitest run",
-    "coverage": "FORCE_COLOR=1 vitest run --coverage",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
     "demo": "[ ! -f dist/index.js ] && npm run build; node examples/demo.js",
     "lint": "prettier --check .",
     "prepare": "husky",
