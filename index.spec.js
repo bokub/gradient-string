@@ -1,60 +1,62 @@
-import test from 'ava';
+import {describe, it, expect} from 'vitest';
 import g from '.';
 
-test('throw error if wrong gradient arguments', t => {
-	t.throws(() => g()('abc'));
-	t.throws(() => g('red')('abc'));
-});
+describe('Gradient Tests', () => {
+	it('should throw an error if wrong gradient arguments are passed', () => {
+		expect(() => g()('abc')).toThrow();
+		expect(() => g('red')('abc')).toThrow();
+	});
 
-test('do not throw error if nothing to color', t => {
-	t.is(g('gold', 'silver')(), '');
-	t.is(g('gold', 'silver')(null), '');
-});
+	it('should not throw an error if there is nothing to color', () => {
+		expect(g('gold', 'silver')()).toBe('');
+		expect(g('gold', 'silver')(null)).toBe('');
+	});
 
-test('throw error if options is not an object', t => {
-	t.throws(() => g('blue', 'red')('abc', false), null, 'Expected `options` to be an `object`, got `boolean`');
-});
+	it('should throw an error if options is not an object', () => {
+		expect(() => g('blue', 'red')('abc', false)).toThrowError('Expected `options` to be an `object`, got `boolean`');
+	});
 
-test('throw error if interpolation is not a string', t => {
-	t.throws(() => g('blue', 'red')('abc', {interpolation: 1000}), null, 'Expected `options.interpolation` to be a `string`, got `number`');
-});
+	it('should throw an error if interpolation is not a string', () => {
+		expect(() => g('blue', 'red')('abc', {interpolation: 1000})).toThrowError('Expected `options.interpolation` to be a `string`, got `number`');
+	});
 
-test('throw error if hsvSpin is not a string, but only if interpolation is HSV', t => {
-	t.notThrows(() => g('blue', 'red')('abc', {hsvSpin: 42}));
-	t.throws(() => g('blue', 'red')('abc', {interpolation: 'hsv', hsvSpin: 42}), null, 'Expected `options.hsvSpin` to be a `string`, got `number`');
-});
+	it('should throw an error if hsvSpin is not a string, but only if interpolation is HSV', () => {
+		expect(() => g('blue', 'red')('abc', {hsvSpin: 42})).not.toThrow();
+		expect(() => g('blue', 'red')('abc', {interpolation: 'hsv', hsvSpin: 42})).toThrowError('Expected `options.hsvSpin` to be a `string`, got `number`');
+	});
 
-test('works fine', t => {
-	t.not(g('blue', 'white', 'red')('abc'), 'abc');
+	it('should work correctly with different gradient and interpolation options', () => {
+		expect(g('blue', 'white', 'red')('abc')).not.toBe('abc');
 
-	// Red -> yellow -> green (short arc)
-	t.not(g('red', 'green')('abc'), g('red', 'green')('abc', {interpolation: 'hsv'}));
+		// Red -> yellow -> green (short arc)
+		expect(g('red', 'green')('abc')).not.toBe(g('red', 'green')('abc', {interpolation: 'hsv'}));
 
-	// Red -> blue -> green (long arc)
-	t.not(g('red', 'green')('abc'), g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}));
-	t.not(g('red', 'green')('abc', {interpolation: 'hsv'}), g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}));
-});
+		// Red -> blue -> green (long arc)
+		expect(g('red', 'green')('abc')).not.toBe(g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}));
+		expect(g('red', 'green')('abc', {interpolation: 'hsv'})).not.toBe(g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}));
+	});
 
-test('varargs syntax equal to array syntax', t => {
-	t.is(g('yellow', 'green')('abc'), g(['yellow', 'green'])('abc'));
-});
+	it('should support varargs syntax equal to array syntax', () => {
+		expect(g('yellow', 'green')('abc')).toBe(g(['yellow', 'green'])('abc'));
+	});
 
-test('supports aliases', t => {
-	t.is(g.cristal('Hello world'), g('#bdfff3', '#4ac29a')('Hello world'));
-	t.is(g.pastel('Hello world'), g('#74ebd5', '#74ecd5')('Hello world', {interpolation: 'hsv', hsvSpin: 'long'}));
-});
+	it('should support aliases', () => {
+		expect(g.cristal('Hello world')).toBe(g('#bdfff3', '#4ac29a')('Hello world'));
+		expect(g.pastel('Hello world')).toBe(g('#74ebd5', '#74ecd5')('Hello world', {interpolation: 'hsv', hsvSpin: 'long'}));
+	});
 
-test('multiline option works the same way on one line strings', t => {
-	t.is(g('blue', 'white', 'red').multiline('abc'), g('blue', 'white', 'red')('abc'));
-	t.is(g('red', 'green').multiline('abc', {interpolation: 'hsv'}), g('red', 'green')('abc', {interpolation: 'hsv'}));
-});
+	it('multiline option should work the same way on one-line strings', () => {
+		expect(g('blue', 'white', 'red').multiline('abc')).toBe(g('blue', 'white', 'red')('abc'));
+		expect(g('red', 'green').multiline('abc', {interpolation: 'hsv'})).toBe(g('red', 'green')('abc', {interpolation: 'hsv'}));
+	});
 
-test('multiline option works fine', t => {
-	t.is(g('orange', 'purple').multiline('hello\nworld'), g('orange', 'purple')('hello') + '\n' + g('orange', 'purple')('world'));
-	t.is(g.atlas.multiline('abc\n\ndef'), g.atlas('abc') + '\n\n' + g.atlas('def'));
-	t.not(g.rainbow.multiline('hi\nworld'), g.rainbow('hi') + '\n' + g.rainbow('world'));
-});
+	it('multiline option should work correctly', () => {
+		expect(g('orange', 'purple').multiline('hello\nworld')).toBe(g('orange', 'purple')('hello') + '\n' + g('orange', 'purple')('world'));
+		expect(g.atlas.multiline('abc\n\ndef')).toBe(g.atlas('abc') + '\n\n' + g.atlas('def'));
+		expect(g.rainbow.multiline('hi\nworld')).not.toBe(g.rainbow('hi') + '\n' + g.rainbow('world'));
+	});
 
-test('case insensitive options', t => {
-	t.is(g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'}), g('red', 'green')('abc', {interpolation: 'HSV', hsvSpin: 'Long'}));
+	it('case-insensitive options should work correctly', () => {
+		expect(g('red', 'green')('abc', {interpolation: 'hsv', hsvSpin: 'long'})).toBe(g('red', 'green')('abc', {interpolation: 'HSV', hsvSpin: 'Long'}));
+	});
 });

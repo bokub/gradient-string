@@ -10,32 +10,27 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 18
       - run: npm ci
       - run: npm run lint
 
   test:
     name: Test (Node v${{ matrix.node }})
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ 10, 16 ]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 18
       - run: npm ci
-      - run: npm test
       - run: npm run coverage
-      - uses: codecov/codecov-action@v3
-        if: matrix.node == 16
+      - name: Update code coverage
+        uses: codecov/codecov-action@v4
         with:
-          files: ./coverage.lcov
-
+          token: ${{ secrets.CODECOV_TOKEN }}
   publish:
     name: Publish on npm
     runs-on: ubuntu-latest
@@ -44,12 +39,13 @@ jobs:
       - lint
       - test
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
       - run: npm ci
       - name: Publish on npm
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
