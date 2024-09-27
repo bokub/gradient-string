@@ -13,21 +13,25 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - run: npm ci
       - run: npm run lint
 
   test:
     name: Test (Node v${{ matrix.node }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 20]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm run coverage
       - name: Update code coverage
+        if: matrix.node == 20
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -42,7 +46,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - name: Publish on npm

@@ -1,38 +1,29 @@
 #!/usr/bin/env node
 
-// Run with npm run built-in
-const gradient = require('..');
+// Run with "npm run built-in"
+import gradient from '../dist/index.js';
 
-const {log} = console;
+const { log } = console;
 const str = '■'.repeat(48);
 
 log('');
 
 for (const t of [
-	'cristal',
-	'teen',
-	'mind',
-	'morning',
-	'vice',
-	'passion',
-	'fruit',
-	'instagram',
-	'atlas',
-	'retro',
-	'summer',
-	'pastel',
-	'rainbow'
+  'cristal',
+  'teen',
+  'mind',
+  'morning',
+  'vice',
+  'passion',
+  'fruit',
+  'instagram',
+  'atlas',
+  'retro',
+  'summer',
+  'pastel',
+  'rainbow',
 ]) {
-	log(pad(t), gradient[t](str));
+  log('  ' + t.padEnd(11, ' '), gradient[t](str));
 }
 
 log('');
-
-function pad(s) {
-	let i = -1;
-	const l = 11 - s.length;
-	while (++i < l) {
-		s += ' ';
-	}
-	return '  ' + s;
-}

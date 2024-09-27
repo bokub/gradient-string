@@ -1,35 +1,40 @@
 {
   "name": "gradient-string",
   "description": "Beautiful color gradients in terminal output",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "author": "Boris K",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
-    "built-in": "node examples/built-in.js",
-    "test": "cross-env FORCE_COLOR=1 vitest run",
-    "coverage": "cross-env FORCE_COLOR=1 vitest run --coverage",
-    "demo": "node examples/demo.js",
-    "fix": "xo --fix",
-    "lint": "xo",
-    "prepare": "husky install"
+    "build": "rm -fr dist && tsc && rm -fr dist/*.spec.*",
+    "built-in": "[ ! -f dist/index.js ] && npm run build; node examples/built-in.js",
+    "test": "FORCE_COLOR=1 vitest run",
+    "coverage": "FORCE_COLOR=1 vitest run --coverage",
+    "demo": "[ ! -f dist/index.js ] && npm run build; node examples/demo.js",
+    "lint": "prettier --check .",
+    "prepare": "husky",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "chalk": "^4.1.2",
+    "chalk": "^5.3.0",
     "tinygradient": "^1.1.5"
   },
   "devDependencies": {
+    "@bokub/prettier-config": "^2.1.0",
     "@vitest/coverage-v8": "^2.1.1",
-    "cross-env": "^7.0.3",
-    "husky": "^7.0.4",
-    "vitest": "^2.1.1",
-    "xo": "^0.48.0"
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
   },
   "files": [
-    "index.js"
+    "dist"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "repository": "bokub/gradient-string",
   "homepage": "https://github.com/bokub/gradient-string",
@@ -52,16 +57,8 @@
     "styles",
     "terminal"
   ],
-  "xo": {
-    "rules": {
-      "comma-dangle": "off",
-      "node/prefer-global/buffer": "off",
-      "operator-linebreak": "off",
-      "padding-line-between-statements": "off",
-      "unicorn/prefer-module": "off",
-      "unicorn/prefer-regexp-test": "off",
-      "unicorn/prefer-spread": "off",
-      "unicorn/prevent-abbreviations": "off"
-    }
+  "prettier": "@bokub/prettier-config",
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
   }
 }

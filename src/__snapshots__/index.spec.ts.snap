@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Gradient Tests > should always return the same result for the same input 1`] = `"[38;5;196mL[39m[38;5;166mo[39m[38;5;130mr[39m[38;5;100me[39m[38;5;64mm[39m [38;5;34mI[39m[38;5;29mp[39m[38;5;30ms[39m[38;5;25mu[39m[38;5;26mm[39m[38;5;21m![39m "`;
+
+exports[`Gradient Tests > should always return the same result for the same input 2`] = `"[38;5;196mL[39m[38;5;202mo[39m[38;5;172mr[39m[38;5;178me[39m[38;5;178mm[39m [38;5;148mI[39m[38;5;106mp[39m[38;5;70ms[39m[38;5;70mu[39m[38;5;34mm[39m"`;
+
+exports[`Gradient Tests > should always return the same result for the same input 3`] = `"[38;5;51mL[39m[38;5;21mo[39m[38;5;201mr[39m[38;5;196me[39m[38;5;226mm[39m [38;5;82mI[39m[38;5;49mp[39m[38;5;39ms[39m[38;5;57mu[39m[38;5;201mm[39m"`;
+
+exports[`Gradient Tests > should always return the same result for the same input 4`] = `
+"[38;5;216mL[39m[38;5;181mo[39m[38;5;176mr[39m[38;5;146me[39m[38;5;80mm[39m
+
+[38;5;216mI[39m[38;5;181mp[39m[38;5;176ms[39m[38;5;146mu[39m[38;5;80mm[39m"
+`;
