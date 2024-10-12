@@ -185,7 +185,7 @@ console.log(longHSVGradient(str));
 - [Turoborepo](https://turbo.build/) in [@turbo/workspaces](https://www.npmjs.com/package/@turbo/workspaces?activeTab=dependencies#:~:text=gradient%2Dstring) and [@turbo/codemod](https://www.npmjs.com/package/@turbo/codemod?activeTab=dependencies#:~:text=gradient%2Dstring)
 - [Tencent](https://www.tencent.com/) in [CloudBase Framework](https://www.npmjs.com/package/@cloudbase/framework-core?activeTab=dependencies#:~:text=gradient%2Dstring)
 - [Microsoft](https://microsoft.com) in [@lage-run/reporters](https://www.npmjs.com/package/@lage-run/reporters?activeTab=dependencies#:~:text=gradient%2Dstring)
-- [Fireship](https://fireship.io/) in [this YouTube video](https://youtu.be/_oHByo8tiEY?si=3AKfAfOMXI0d9Ay6&t=76), where he shows how he built [javascript-millionaire](https://github.com/fireship-io/javascript-millionaire)
+- [Fireship](https://fireship.io/) in [this YouTube video](https://youtu.be/_oHByo8tiEY?si=-G6EOqca31UYlWqr&t=341), where he shows how he built [javascript-millionaire](https://github.com/fireship-io/javascript-millionaire)
 - [Magic UI](https://magicui.design/) in [Magic UI CLI](https://www.npmjs.com/package/magicui-cli?activeTab=dependencies#:~:text=gradient%2Dstring)
 - [Myself](https://github.com/bokub) in [chalk-animation](https://github.com/bokub/chalk-animation), the animated version of gradient-string
 - [Sindre Sorhus](https://github.com/sindresorhus) in [ink-gradient](https://www.npmjs.com/package/ink-gradient?activeTab=dependencies#:~:text=gradient%2Dstring), the [Ink](https://github.com/vadimdemedes/ink) version of gradient-string
