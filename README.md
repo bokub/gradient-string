@@ -176,7 +176,7 @@ console.log(longHSVGradient(str));
 
 ## Dependencies
 
-- [chalk](https://github.com/chalk/chalk) - Output colored text to terminal
+- [ansis](https://github.com/webdiscus/ansis) - Output colored text to terminal
 - [tinygradient](https://github.com/mistic100/tinygradient) - Generate gradients
 
 ## Who uses gradient-string?

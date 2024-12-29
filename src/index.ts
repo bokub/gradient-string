@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import { hex } from 'ansis';
 import tinygradient, { StopInput, Instance as TinyGradient, ArcMode } from 'tinygradient';
 import { ColorInput, Instance as TinyColor } from 'tinycolor2';
 
@@ -113,7 +113,7 @@ function applyGradient(str: string, gradient: TinyGradient, opts?: GradientOptio
   let result = '';
 
   for (const s of str) {
-    result += s.match(/\s/g) ? s : chalk.hex(colors.shift()?.toHex() || '#000')(s);
+    result += s.match(/\s/g) ? s : hex(colors.shift()?.toHex() || '#000')(s);
   }
 
   return result;
@@ -131,7 +131,7 @@ export function multiline(str: string, gradient: TinyGradient, opts?: GradientOp
     let lineResult = '';
 
     for (const l of line) {
-      lineResult += chalk.hex(lineColors.shift()?.toHex() || '#000')(l);
+      lineResult += hex(lineColors.shift()?.toHex() || '#000')(l);
     }
 
     results.push(lineResult);
